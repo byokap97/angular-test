@@ -6,19 +6,21 @@
         .module('app')
         .factory('ShipsService', ShipsService);
 
-    ShipsService.$inject = ['$http'];
-    function ShipsService($http) {
-        
+    ShipsService.$inject = ['$http', '$rootScope', 'UserService'];
+    function ShipsService($http, $rootScope, UserService) {
+        var username = $rootScope.globals.currentUser.username;
         var service = {
             GetStarships: GetStarships,
             GetStarship: GetStarship
         };        
         return service;
 
-        function GetStarships(url) {
+        async function GetStarships(url) {
             if (!url) {
                 url  ='https://swapi.co/api/starships/'
             }
+            var canRequest = await UserService.tryRequest(username, url);
+            if(!canRequest) return false;
             return $http.get(url,{
                 headers: {
                     'Authorization': 'none'        
@@ -29,9 +31,11 @@
         
         }
 
-        function GetStarship(id) {
+        async function GetStarship(id) {
             if (!id) return false;
             var url  =`https://swapi.co/api/starships/${id}/`;
+            var canRequest = await UserService.tryRequest(username, url);
+            if(!canRequest) return false;
             return $http.get(url,{
                 headers: {
                     'Authorization': 'none'        
