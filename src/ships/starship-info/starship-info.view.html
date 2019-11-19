@@ -17,27 +17,28 @@
                 <b>Length: </b><span>{{$ctrl.starship.length}}m</span><br>
                 <b>Cargo Capacity: </b><span>{{$ctrl.starship.cargo_capacity}} metric tons</span><br>
                 <b>Mimimum Crew: </b><span>{{$ctrl.starship.crew}}</span><br>
-                <b>Passengers: </b><span>{{$ctrl.starship.name}}</span><br>
+                <b>Passengers: </b><span>{{$ctrl.starship.passengers}}</span><br>
             </div>
         </div>
     </div>
-    <div class="row t">
-        <div class="col-xs-12 col-sm-12 col-md-4">
+    <div class="row text-center">
+        <div class="col-xs-12 col-sm-12 col-md-offset-3 col-md-6" ng-if="$ctrl.starship.films.length > 0">
             <h3>Related Films</h3>
-            <div ng-if="$ctrl.starship.films.length > 0">
-                <div ng-repeat="film in $ctrl.starship.films_info">
+            <div class="flex-row">
+                <div class="related_info" ng-repeat="film in $ctrl.starship.films_info">
                     <img ng-src="https://starwars-visualguide.com/assets/img/films/{{film.id}}.jpg">
-                    <h6></h6>
+                    <h6>{{film.info.title}}</h6>
                 </div>
             </div>
-            <span ng-if="$ctrl.starship.films.length == 0"> no peliculas</span>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-4">
+        <div class="col-xs-12 col-sm-12 col-md-4" ng-if="$ctrl.starship.pilots.length > 0">
             <h3>Related Pilots</h3>
-            <div ng-if="$ctrl.starship.pilots.length > 0">
-                    {{$ctrl.starship}}
+            <div class="flex-row">
+                <div class="related_info" ng-repeat="pilot in $ctrl.starship.pilots_info">
+                    <img ng-src="https://starwars-visualguide.com/assets/img/pilots/{{pilot.id}}.jpg">
+                    <h6>{{pilot.info}}</h6>
+                </div>
             </div>
-            <span ng-if="$ctrl.starship.pilots.length == 0"> no pilotos</span>
         </div>
     </div>
     
