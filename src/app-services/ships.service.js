@@ -9,11 +9,13 @@
     ShipsService.$inject = ['$http'];
     function ShipsService($http) {
         
-        var service = {GetStarships: GetStarships};        
+        var service = {
+            GetStarships: GetStarships,
+            GetStarship: GetStarship
+        };        
         return service;
 
         function GetStarships(url) {
-            
             if (!url) {
                 url  ='https://swapi.co/api/starships/'
             }
@@ -24,9 +26,21 @@
             }).then(function(res){
                 return res.data;
             });
-            
+        
         }
 
+        function GetStarship(id) {
+            if (!id) return false;
+            var url  =`https://swapi.co/api/starships/${id}/`;
+            return $http.get(url,{
+                headers: {
+                    'Authorization': 'none'        
+                }
+            }).then(function(res){
+                return res.data;
+            });
+            
+        }
        
     }
 })();

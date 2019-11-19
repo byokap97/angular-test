@@ -5,8 +5,8 @@
         .module('app')
         .controller('ShipsController', ShipsController);
     
-    ShipsController.$inject = ['ShipsService', '$scope'];
-    function ShipsController(ShipsService,$scope) {
+    ShipsController.$inject = ['ShipsService', '$scope', '$location'];
+    function ShipsController(ShipsService,$scope, $location) {
         var _this = this;
         
 
@@ -27,8 +27,10 @@
         _this.error = undefined;
         _this.lastResponse = {};
         _this.starships = [];
-        
-        
+
+        _this.go = function ( path ) {
+            $location.path( path );
+        };
         
         _this.fetchNext();
         

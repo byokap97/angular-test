@@ -1,0 +1,45 @@
+<section id="ship-info">
+    <a class="return-button" ng-click="$ctrl.go('/ships/')">volver</a>
+    <div class="row">
+        <div id="starship-img" class="col-xs-12 col-sm-12 col-md-offset-1 col-md-6">
+                <img ng-src="https://starwars-visualguide.com/assets/img/starships/{{$ctrl.shipId}}.jpg">
+        </div>
+        <div id="starship-info" class="col-xs-12 col-sm-12 col-md-4">
+            <h3>{{$ctrl.starship.name}}</h3>
+            <div>
+                <b>Model: </b><span>{{$ctrl.starship.model}}</span><br>
+                <b>Manufacturer: </b><span>{{$ctrl.starship.manufacturer}}</span><br>
+                <b>Class: </b><span>{{$ctrl.starship.starship_class}}</span><br>
+                <b>Cost: </b><span>{{$ctrl.starship.cost_in_credits}} credits</span><br>
+                <b>Speed: </b><span>{{$ctrl.starship.max_atmosphering_speed}}</span><br>
+                <b>Hyperdrive Rating: </b><span>{{$ctrl.starship.hyperdrive_rating}}</span><br>
+                <b>MGLT: </b><span>{{$ctrl.starship.name}}</span><br>
+                <b>Length: </b><span>{{$ctrl.starship.length}}m</span><br>
+                <b>Cargo Capacity: </b><span>{{$ctrl.starship.cargo_capacity}} metric tons</span><br>
+                <b>Mimimum Crew: </b><span>{{$ctrl.starship.crew}}</span><br>
+                <b>Passengers: </b><span>{{$ctrl.starship.name}}</span><br>
+            </div>
+        </div>
+    </div>
+    <div class="row t">
+        <div class="col-xs-12 col-sm-12 col-md-4">
+            <h3>Related Films</h3>
+            <div ng-if="$ctrl.starship.films.length > 0">
+                <div ng-repeat="film in $ctrl.starship.films_info">
+                    <img ng-src="https://starwars-visualguide.com/assets/img/films/{{film.id}}.jpg">
+                    <h6></h6>
+                </div>
+            </div>
+            <span ng-if="$ctrl.starship.films.length == 0"> no peliculas</span>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4">
+            <h3>Related Pilots</h3>
+            <div ng-if="$ctrl.starship.pilots.length > 0">
+                    {{$ctrl.starship}}
+            </div>
+            <span ng-if="$ctrl.starship.pilots.length == 0"> no pilotos</span>
+        </div>
+    </div>
+    
+</section>
+

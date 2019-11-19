@@ -1,8 +1,8 @@
-<div class="panel panel-default ship">
-    <div class="panel-heading">
-        <h3 class="panel-title">{{ $ctrl.starship.name}}</h3>
+<div ng-click="$ctrl.moreInfo($ctrl.shipId)" class="panel panel-default ship">
+    <div class="panel-img">
+        <img ng-src="https://starwars-visualguide.com/assets/img/starships/{{$ctrl.shipId}}.jpg">
     </div>
     <div class="panel-body">
-        <img ng-src="https://starwars-visualguide.com/assets/img/starships/{{$ctrl.shipId}}.jpg">
+        <a>{{$ctrl.starship.name}}</a>
     </div>
 </div>

@@ -7,10 +7,9 @@
     <link href="app-content/app.css" rel="stylesheet" />
 </head>
 <body>
-
         <div class="container">
             <!-- As a link -->
-            <div class="col-sm-12">
+            <div >
                 <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
                 <div ng-view></div>
             </div>
@@ -28,10 +27,13 @@
     <script src="app-services/authentication.service.js"></script>
     <script src="app-services/flash.service.js"></script>
     <script src="app-services/ships.service.js"></script>
+    <script src="app-services/films.service.js"></script>
+    <script src="app-services/pilots.service.js"></script>
     <script src="app-services/user.service.local-storage.js"></script>
     <script src="login/login.controller.js"></script>
     <script src="register/register.controller.js"></script>
     <script src="ships/ships.controller.js"></script>
+    <script src="ships/starship-info/starship-info.controller.js"></script>
     <script src="ships/starships-list/starships-list.component.js"></script>
     <script src="ships/starships-list/starship/starship.component.js"></script>
 </body>

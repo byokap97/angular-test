@@ -7,7 +7,8 @@
         templateUrl: './ships/starships-list/starships-list.component.html',
         bindings: {
             starships: '<',
-            onFetchNextPage: '&'
+            onFetchNextPage: '&',
+            go: '&',
         }
     })
     function StarshipsListController($scope) {
