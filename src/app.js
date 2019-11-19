@@ -22,9 +22,7 @@
                 
             })
             .when('/', {
-                controller: 'ShipsController',
-                templateUrl: 'home/home.view.html',
-                controllerAs: '$ctrl'
+                redirectTo:'/ships'
             })
 
             .when('/login', {

@@ -1,6 +1,6 @@
 <div ng-click="$ctrl.moreInfo($ctrl.shipId)" class="panel panel-default ship">
     <div class="panel-img">
-        <img ng-src="https://starwars-visualguide.com/assets/img/starships/{{$ctrl.shipId}}.jpg">
+        <img ng-src="https://starwars-visualguide.com/assets/img/starships/{{$ctrl.shipId}}.jpg" onError="this.src='https://i.pinimg.com/originals/06/c9/9d/06c99d5208b12df45bde032fcf80a4b1.jpg';">
     </div>
     <div class="panel-body">
         <a>{{$ctrl.starship.name}}</a>
