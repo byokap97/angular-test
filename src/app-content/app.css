@@ -93,6 +93,11 @@ h3{
 #starship-img img {
     max-width: 100%;
 }
+h6{
+    font-family: jedi;
+    font-size: 12px;
+    color: #FFEE58;
+}
 .return-button {
     font-family: jedi;
     text-decoration: none;
@@ -103,6 +108,24 @@ h3{
 .return-button:hover {
     text-decoration: none;
     color: #FFEE58;
+}
+.related_info{
+    max-width: none;
+    width: calc(25% - 20px);
+    position: relative;
+    display: inline-block;
+    height: 200px;
+    margin-right: 20px;
+}
+.related_info img{
+    width: 100%;
+    height: auto;
+}
+
+.flex-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
