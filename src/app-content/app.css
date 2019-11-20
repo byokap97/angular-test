@@ -161,6 +161,22 @@ h6{
     border-color: #FFEE58;
     background-color: transparent;
 }
+menu{
+    padding: 0px;
+    position: absolute;
+    width: 33%;
+}
+
+.nav-wars{
+    background-color: transparent;
+    border: 0px!important;
+    font-family: jedi;
+    
+}
+.nav-wars  li a{
+    color: #FFEE58!important;
+}
+
 .container {
     width: 100%; 
 }
@@ -183,7 +199,9 @@ h6{
     .ships starship:nth-child(5n) {
         width: 100%;
     }
-    
+    menu{
+        width: 10%;
+    }
 }
 
 @media (min-width: 768px){
