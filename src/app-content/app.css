@@ -25,6 +25,12 @@ h1{
     color: #FFEE58;
 }
 
+h2{
+    font-family: jedi-outline;
+    font-size: 3em;
+    color: #FFEE58;
+} 
+
 h3{
     font-family: jedi-outline;
     font-size: 2em;
@@ -55,9 +61,11 @@ starship {
 }
 starship:hover{
     transform: scale(1.01);
-    box-shadow: 0 0 11px #FFEE58; 
 }
 
+.box-wars{
+    box-shadow: 0 0 11px #FFEE58; 
+}
 .panel {
     background: transparent;
 }
@@ -135,6 +143,14 @@ h6{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#login-box {
+    padding: 0px 10px 10px 10px;
+}
+
+#login-box label, span{
+    font-family: jedi;
 }
 
 .container {
