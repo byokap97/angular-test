@@ -84,16 +84,6 @@
             return deferred.promise;
         }
 
-        // function GetRequestOfUser(username, url) {
-        //     var deferred = $q.defer();
-        //     var user = GetByUsername(username);
-        //     var resquests = user.requests || [];
-        //     var filtered = $filter('filter')(resquests, { url: url });
-        //     var request = filtered.length ? filtered[0] : null;
-        //     deferred.resolve(request);
-        //     return deferred.promise;
-        // }
-
         function getRequests(username) {
             var deferred = $q.defer();
             // simulate api call with $timeout
