@@ -27,7 +27,7 @@
                 }
             }).then(function (res) {
                 UserService.setRequest(username, url);
-                return canRequest;
+                return { success: true, data: res.data };
             });
 
         }
