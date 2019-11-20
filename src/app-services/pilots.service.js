@@ -11,25 +11,25 @@
         var username = $rootScope.globals.currentUser.username;
         var service = {
             GetPilots: GetPilots,
-        };        
+        };
         return service;
 
-        function GetPilots(url) {
+        async function GetPilots(url) {
             if (!url) {
-                url  ='https://swapi.co/api/films/'
+                url = 'https://swapi.co/api/films/'
             }
             var canRequest = await UserService.tryRequest(username, url);
-            if(!canRequest) return false;
-            return $http.get(url,{
+            if (!canRequest) return false;
+            return $http.get(url, {
                 headers: {
-                    'Authorization': 'none'        
+                    'Authorization': 'none'
                 }
-            }).then(function(res){
+            }).then(function (res) {
                 UserService.setRequest(username, url);
                 return res.data;
             });
-        
+
         }
-       
+
     }
 })();

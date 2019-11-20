@@ -1,7 +1,8 @@
 <div class="ships container">
     <div class="row">
-        <starship ng-repeat="item in $ctrl.starships" starship="item" class="col-xs-12 col-sm-12 col-md-3 box-wars"></starship>
+        <starship ng-repeat="item in $ctrl.starships" starship="item" class="col-xs-12 col-sm-12 col-md-3"></starship>
     </div>
 </div>
 
-<button class="return-button" ng-if="$ctrl.nextShipsAvailable" ng-click="$ctrl.fetchNextPage()" class="btn btn-primary">Más datos</button>
+<button class="return-button" ng-if="$ctrl.nextShipsAvailable" ng-click="$ctrl.fetchNextPage()"
+    class="btn btn-primary">Más datos</button>

@@ -2,7 +2,7 @@
     <a class="return-button" ng-click="$ctrl.go('/ships/')">volver</a>
     <div class="row">
         <div id="starship-img" class="col-xs-12 col-sm-12 col-md-offset-1 col-md-6 text-center">
-                <img ng-src="https://starwars-visualguide.com/assets/img/starships/{{$ctrl.shipId}}.jpg">
+            <img ng-src="https://starwars-visualguide.com/assets/img/starships/{{$ctrl.shipId}}.jpg">
         </div>
         <div id="starship-info" class="col-xs-12 col-sm-12 col-md-4">
             <h3>{{$ctrl.starship.name}}</h3>
@@ -22,7 +22,8 @@
         </div>
     </div>
     <div class="row text-center">
-        <div class="col-xs-12 col-sm-12 col-md-offset-3 col-md-6" ng-if="$ctrl.starship.films.length > 0">
+        <div style="margin-top:15px" class="col-xs-12 col-sm-12 col-md-offset-3 col-md-6"
+            ng-if="$ctrl.starship.films.length > 0">
             <h3>Related Films</h3>
             <div class="flex-row">
                 <div class="related_info" ng-repeat="film in $ctrl.starship.films_info">
@@ -31,16 +32,16 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-4" ng-if="$ctrl.starship.pilots.length > 0">
+        <div style="margin-top:15px" class="col-xs-12 col-sm-12 col-md-offset-3 col-md-6"
+            ng-if="$ctrl.starship.pilots.length > 0">
             <h3>Related Pilots</h3>
             <div class="flex-row">
                 <div class="related_info" ng-repeat="pilot in $ctrl.starship.pilots_info">
-                    <img ng-src="https://starwars-visualguide.com/assets/img/pilots/{{pilot.id}}.jpg">
-                    <h6>{{pilot.info}}</h6>
+                    <img ng-src="https://starwars-visualguide.com/assets/img/characters/{{pilot.id}}.jpg">
+                    <h6>{{pilot.info.name}}</h6>
                 </div>
             </div>
         </div>
     </div>
-    
-</section>
 
+</section>

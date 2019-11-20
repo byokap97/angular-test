@@ -57,7 +57,7 @@
                             user.requests = user.requests || [];
                             var filtered = $filter('filter')(user.requests, { url: url });
                             var request = filtered.length ? filtered[0] : null;
-                            if(request){
+                            if (request) {
                                 for (var i = 0; i < user.requests.length; i++) {
                                     if (user.requests[i].url === user.url) {
                                         request.date = Date.now();
@@ -72,7 +72,7 @@
                                 }
                                 user.requests.push(request)
                             }
-                        
+
                             Update(user)
                                 .then(function () {
                                     deferred.resolve({ success: true });

@@ -60,6 +60,7 @@ starship {
     margin-bottom: 10px;
 }
 starship:hover{
+    box-shadow: 0 0 11px #FFEE58; 
     transform: scale(1.01);
 }
 
@@ -133,7 +134,6 @@ h6{
     width: calc(25% - 20px);
     position: relative;
     display: inline-block;
-    height: 200px;
     margin-right: 20px;
 }
 .related_info img{

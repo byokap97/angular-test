@@ -25,9 +25,9 @@
                 return item !== "";
             }).slice(-1)[0];
         }
-        ctrl.moreInfo = function ( id ) {
+        ctrl.moreInfo = function (id) {
             var path = `/ship/${id}`
-            $location.path( path );
+            $location.path(path);
         };
     }
 
