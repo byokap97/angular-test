@@ -32,6 +32,7 @@
                 })
                 .catch(function () {
                     _this.error = true;
+                    _this.dataLoading = false;
                     $scope.$digest();
                 })
         }

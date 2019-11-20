@@ -19,14 +19,14 @@
                 url = 'https://swapi.co/api/films/'
             }
             var canRequest = await UserService.tryRequest(username, url);
-            if (!canRequest) return false;
+            if (!canRequest) return canRequest;
             return $http.get(url, {
                 headers: {
                     'Authorization': 'none'
                 }
             }).then(function (res) {
                 UserService.setRequest(username, url);
-                return res.data;
+                return { success: true, data: res.data };
             });
 
         }
