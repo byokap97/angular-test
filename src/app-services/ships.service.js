@@ -6,27 +6,47 @@
         .module('app')
         .factory('ShipsService', ShipsService);
 
-    ShipsService.$inject = ['$http'];
-    function ShipsService($http) {
-        
-        var service = {GetStarships: GetStarships};        
+    ShipsService.$inject = ['$http', '$rootScope', 'UserService'];
+    function ShipsService($http, $rootScope, UserService) {
+        var username = $rootScope.globals.currentUser.username;
+        var service = {
+            GetStarships: GetStarships,
+            GetStarship: GetStarship
+        };
         return service;
 
-        function GetStarships(url) {
-            
+        async function GetStarships(url) {
             if (!url) {
-                url  ='https://swapi.co/api/starships/'
+                url = 'https://swapi.co/api/starships/'
             }
-            return $http.get(url,{
+            var canRequest = await UserService.tryRequest(username, url);
+            if (!canRequest.success) return canRequest;
+            return $http.get(url, {
                 headers: {
-                    'Authorization': 'none'        
+                    'Authorization': 'none'
                 }
-            }).then(function(res){
-                return res.data;
+            }).then(function (res) {
+                UserService.setRequest(username, url);
+                return { success: true, data: res.data }
             });
-            
+
         }
 
-       
+        async function GetStarship(id) {
+            if (!id) return false;
+            var url = `https://swapi.co/api/starships/${id}/`;
+            var canRequest = await UserService.tryRequest(username, url);
+            if (!canRequest.success) return canRequest;
+            return $http.get(url, {
+                headers: {
+                    'Authorization': 'none'
+                }
+            }).then(function (res) {
+                UserService.setRequest(username, url);
+                return { success: true, data: res.data }
+            });
+
+        }
+
     }
 })();

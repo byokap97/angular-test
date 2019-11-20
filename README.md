@@ -19,17 +19,22 @@ Elige las tareas que creas que mejor se adaptan a tus conocimientos. Justifica p
 
 - Creación de una ficha de detalle de la nave:
   - Se quiere crear una ficha que se abra al hacer click sobre una de las naves que aparecen. Se debe implementar un botón de volver al listado. **5 puntos**
+
 - Modernización del site. Cambia los estilos que creas pertinentes. El único criterio es que a  dirección le gustaría que se pareciera lo máximo posible a la web de Massimo Dutti. **5 puntos**
 - Correcciones:
   - Listado naves: Actualmente puedes hacer click al botón “ver más” de forma infinita, se debe arreglar.
   - Listado naves: Hay imágenes que no existen, en ese caso se debe mostrar un texto o imagen informando que no está disponible.
 - Cuando entras por primera vez te debe redirigir a la página de naves.
+
 - Implementar una caché del lado de cliente para proteger la api:
   - Implementa un sistema de caché que evite realizar la misma petición contra el servidor durante 5 minutos.
   - Para resolver este punto puedes hacerlo mediante localStorage **5 Puntos**
+
 - Implementar un menú para los usuarios registrados:
    - Este menú debe permitir cambiar de página. Crea una página de prueba para comprobar que funcione. **5 Puntos**
+
 - Actualización a Angular 7: Aunque esto se realizaría en una fase 2, se ha pedido actualizar a la versión 7 de Angular.  La tarea consistirá en, manteniendo la funcionalidad, adaptar el código a Angular 7. Para esta tarea hay total libertad de empezar de 0 pero se deben mantener las funcionalidades mínimas descritas en el apartado “Requisitos mínimos”. **15 puntos**
+
 - Tests unitarios: Aplica test unitarios al componente starship.service y starship-list.component **5 Puntos**
 
 
@@ -48,3 +53,12 @@ Elige las tareas que creas que mejor se adaptan a tus conocimientos. Justifica p
 * <pre><code> npm install webpack-dev-server -g </code></pre>
 * Para ejecutar:
 * <pre><code> webpack-dev-server </code></pre>
+
+### Solución
+
+- Añado esto como nota porque he tenido problemas con las últimas versiones de nodejs para que el webpack funcionara. Al ejecutar webpack-dev-server, he tenido que hacer un downgrade de la version de node a la 10.6.0 para que funcionara correctamente.
+- Mi conocimiento sobre angular js es limitado. En ese sentido, tengo mucho más en la versión de typescript. No he realizado la migración por cuestión de tiempo, pero si la necesitan ver por cualquier motivo no habría problema.
+- He realizado los 4 primeros puntos por cuestión de tiempo. En ese sentido, sin conocer el código, entendía que podría adaptarme mejor a este tipo de tareas y no quizás a refactorizar un código que no conozco o crear tests sin saber muy bien el funcionamiento. Respecto a la tarea del menú, está finalizada aunque no esta como me hubiese gustado.
+- El apartado del caché interno, lo he creado por usuario, la cuestión es que se registran las peticiones por usuario, así que si otro usuario en este caso se conectara desde el mismo portal podría obtener acceso a la api.
+- Todo el código está en la rama de master, pero en cuyo caso la metodología siempre ha sido trabajar desde una secundaria dev hacia otras ramas identificando cuál era su funcionalidad.
+

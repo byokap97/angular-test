@@ -11,7 +11,7 @@
             }
         })
 
-    function StarshipController() {
+    function StarshipController($location) {
         var ctrl = this;
         ctrl.shipId = "";
 
@@ -25,6 +25,10 @@
                 return item !== "";
             }).slice(-1)[0];
         }
+        ctrl.moreInfo = function (id) {
+            var path = `/ship/${id}`
+            $location.path(path);
+        };
     }
 
 

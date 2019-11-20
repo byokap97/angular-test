@@ -1,10 +1,180 @@
-﻿a {
-    cursor: pointer;
+﻿@font-face {
+    font-family: 'jedi-outline';
+    src: url('./fonts/Starjhol.ttf'); /* IE9 Compat Modes */
 }
 
-.ship .panel-body img {
+@font-face {
+    font-family: 'jedi';
+    src: url('./fonts/Starjedi.ttf'); /* IE9 Compat Modes */
+}
+
+body {
+    background: url(http://www.script-tutorials.com/demos/360/images/stars.png) top center #000;
+}
+
+a {
+    cursor: pointer;
+}
+.header {
+    z-index: 10;
+    height: 200px;
+}
+h1{
+    font-family: jedi-outline;
+    font-size: 4em;
+    color: #FFEE58;
+}
+
+h2{
+    font-family: jedi-outline;
+    font-size: 3em;
+    color: #FFEE58;
+} 
+
+h3{
+    font-family: jedi-outline;
+    font-size: 2em;
+    color: #FFEE58;
+}
+.logo {
+    text-align: center;
+}
+.logo .title {
+    font-family: jedi-outline;
+    font-size: 4em;
+    color: #FFEE58;
+}
+.logo .subtitle {
+    font-family: jedi-outline;
+    font-size: 0.75em;
+    margin-top: -1em;
+    margin-bottom: -2em;
+    color: white;
+}
+
+
+.ships starship:nth-child(5n) {
+    width: 50%;
+}
+starship {
+    margin-bottom: 10px;
+}
+starship:hover{
+    box-shadow: 0 0 11px #FFEE58; 
+    transform: scale(1.01);
+}
+
+.box-wars{
+    box-shadow: 0 0 11px #FFEE58; 
+}
+.panel {
+    background: transparent;
+}
+.panel-default {
+    border: 0;
+}
+.panel-body {
+    padding: 15px 0px;
+}
+
+.ship .panel-img{
+    margin-top: 5px;
+    max-height: 500px;
+}
+.ship .panel-img img {
+    cursor: pointer;
+    width:  100%;
+    height: 400px;
+}
+
+
+.ship .panel-body a {
+    font-family: jedi-outline;
+    text-decoration: none;
+    color: #FFEE58;
+    font-weight: bold;
+    width: 100%;
+    font-size: 18px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 1.3;
+}
+
+#starship-info{
+    font-family: jedi;
+}
+#starship-info span{
+    color: #FFEE58;
+}
+#starship-img img {
     max-width: 100%;
-    object-fit: cover;
+}
+h6{
+    font-family: jedi;
+    font-size: 12px;
+    color: #FFEE58;
+}
+.return-button {
+    font-family: jedi;
+    text-decoration: none;
+    font-size: 12px;
+    color: #FFEE58;
+    border-color: #FFEE58!important;
+    border-radius: 5px!important;
+    background-color: transparent!important;
+}
+
+.return-button:hover {
+    text-decoration: none;
+    color: #FFEE58;
+}
+.related_info{
+    max-width: none;
+    width: calc(25% - 20px);
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
+}
+.related_info img{
+    width: 100%;
+    height: auto;
+}
+
+.flex-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-box {
+    padding: 0px 10px 10px 10px;
+}
+
+.form-wars label, span{
+    font-family: jedi;
+}
+
+.alert{
+    margin-top: 20px;
+    font-family: jedi;
+    border-color: #FFEE58;
+    background-color: transparent;
+}
+menu{
+    padding: 0px;
+    position: absolute;
+    width: 33%;
+}
+
+.nav-wars{
+    background-color: transparent;
+    border: 0px!important;
+    font-family: jedi;
+    
+}
+.nav-wars  li a{
+    color: #FFEE58!important;
 }
 
 .container {
@@ -19,7 +189,24 @@
 }
 
 @media (min-width: 992px){
-    .container {
-        width: 750px; 
+    section{
+        padding: 0px 20px 0 50px;
     }
+    
+}
+
+@media (max-width: 768px){
+    .ships starship:nth-child(5n) {
+        width: 100%;
+    }
+    menu{
+        width: 10%;
+    }
+}
+
+@media (min-width: 768px){
+    section{
+        padding: 0px 20px 0 30px;
+    }
+    
 }

@@ -15,10 +15,14 @@
                 controllerAs: '$ctrl'
                 
             })
-            .when('/', {
-                controller: 'ShipsController',
-                templateUrl: 'home/home.view.html',
+            .when('/ship/:idShip', {
+                controller: 'ShipController',
+                templateUrl: 'ships/starship-info/starship-info.view.html',
                 controllerAs: '$ctrl'
+                
+            })
+            .when('/', {
+                redirectTo:'/ships'
             })
 
             .when('/login', {

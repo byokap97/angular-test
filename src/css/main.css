@@ -21,18 +21,26 @@ h1 {
   font-weight: bold; }
 
 h2 {
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 32px;
+  font-family: "BasisGrotesque-Medium-Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
   letter-spacing: .5px;
-  line-height: 1.1;
+  line-height: 38px;
   color: #000; }
 
 h3 {
   font-size: 22px;
   font-weight: bold;
+  font-family: "BasisGrotesque-Medium-Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: .5px;
   line-height: 1.1;
   color: #000; }
+
+h6 {
+  font-size: 18px;
+  font-family: "BasisGrotesque-Medium-Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+}
 
 a:hover {
   cursor: pointer; }

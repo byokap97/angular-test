@@ -17,6 +17,10 @@
         service.Update = Update;
         service.Delete = Delete;
 
+        service.setRequest = setRequest;
+        service.getRequests = getRequests;
+        service.tryRequest = tryRequest;
+
         return service;
 
         function GetAll() {
@@ -38,6 +42,86 @@
             var filtered = $filter('filter')(getUsers(), { username: username });
             var user = filtered.length ? filtered[0] : null;
             deferred.resolve(user);
+            return deferred.promise;
+        }
+
+        function setRequest(username, url) {
+            var deferred = $q.defer();
+            // simulate api call with $timeout
+            $timeout(function () {
+                GetByUsername(username)
+                    .then(function (user) {
+                        if (user == null) {
+                            deferred.resolve({ success: false, message: 'Username "' + user.username + '" doesnt exists' });
+                        } else {
+                            user.requests = user.requests || [];
+                            var filtered = $filter('filter')(user.requests, { url: url });
+                            var request = filtered.length ? filtered[0] : null;
+                            if (request) {
+                                for (var i = 0; i < user.requests.length; i++) {
+                                    if (user.requests[i].url === request.url) {
+                                        request.date = Date.now();
+                                        user.requests[i] = request;
+                                        break;
+                                    }
+                                }
+                            } else {
+                                var request = {
+                                    url: url,
+                                    date: Date.now()
+                                }
+                                user.requests.push(request)
+                            }
+
+                            Update(user)
+                                .then(function () {
+                                    deferred.resolve({ success: true });
+                                });
+                        }
+                    });
+            }, 1000);
+
+            return deferred.promise;
+        }
+
+        function getRequests(username) {
+            var deferred = $q.defer();
+            // simulate api call with $timeout
+            $timeout(function () {
+                GetByUsername(username)
+                    .then(function (user) {
+                        if (user == null) {
+                            deferred.resolve({ success: false, message: 'Username "' + user.username + '" doesnt exists' });
+                        } else {
+                            user.requests = user.requests || [];
+                            deferred.resolve(user.requests);
+                        }
+                    });
+            }, 1000);
+
+            return deferred.promise;
+        }
+
+        function tryRequest(username, url) {
+            var deferred = $q.defer();
+            // simulate api call with $timeout
+            $timeout(function () {
+                getRequests(username)
+                    .then(function (requests) {
+                        var requested = $filter('filter')(requests, { url: url });
+                        var response = { success: true }
+                        if (requested.length) {
+                            const date = new Date(requested[0].date);
+                            const diffTime = Math.abs(new Date() - date);
+                            var diffMins = Math.round(((diffTime % 86400000) % 3600000) / 60000);
+                            if(diffMins <= 5){
+                                var response = { success: false, message: 'the user has made the request less than 5 minutes ago' };
+                            } 
+                        } 
+                        deferred.resolve(response);
+                    });
+            }, 1000);
+
             return deferred.promise;
         }
 
@@ -105,7 +189,7 @@
         // private functions
 
         function getUsers() {
-            if(!localStorage.users){
+            if (!localStorage.users) {
                 localStorage.users = JSON.stringify([]);
             }
 
