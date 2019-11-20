@@ -54,5 +54,11 @@ Elige las tareas que creas que mejor se adaptan a tus conocimientos. Justifica p
 * Para ejecutar:
 * <pre><code> webpack-dev-server </code></pre>
 
+### Solución
 
-//aclarar tema de que es necesario la version 10.6.0 para que funcione el codigo
+- Añado esto como nota porque he tenido problemas con las últimas versiones de nodejs para que el webpack funcionara. Al ejecutar webpack-dev-server, he tenido que hacer un downgrade de la version de node a la 10.6.0 para que funcionara correctamente.
+- Mi conocimiento sobre angular js es limitado. En ese sentido, tengo mucho más en la versión de typescript. No he realizado la migración por cuestión de tiempo, pero si la necesitan ver por cualquier motivo no habría problema.
+- He realizado los 4 primeros puntos por cuestión de tiempo. En ese sentido, sin conocer el código, entendía que podría adaptarme mejor a este tipo de tareas y no quizás a refactorizar un código que no conozco o crear tests sin saber muy bien el funcionamiento. Respecto a la tarea del menú, está finalizada aunque no esta como me hubiese gustado.
+- El apartado del caché interno, lo he creado por usuario, la cuestión es que se registran las peticiones por usuario, así que si otro usuario en este caso se conectara desde el mismo portal podría obtener acceso a la api.
+- Todo el código está en la rama de master, pero en cuyo caso la metodología siempre ha sido trabajar desde una secundaria dev hacia otras ramas identificando cuál era su funcionalidad.
+
