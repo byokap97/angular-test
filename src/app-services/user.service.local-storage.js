@@ -111,20 +111,10 @@
                         var requested = $filter('filter')(requests, { url: url });
                         if (requested.length) {
                             var five_min = 5 * 60 * 1000;
-                            var timing = new Date() - new Date(requested[0].date) < five_min;
-                            if (!timing) {
-                                setRequest(username, url)
-                                    .then(function () {
-                                        deferred.resolve(true);
-                                    });
-                            } else {
-                                deferred.resolve(false);
-                            }
+                            var timing = new Date() - new Date(requested[0].date) > five_min;
+                            deferred.resolve(timing);
                         } else {
-                            setRequest(username, url)
-                                .then(function () {
-                                    deferred.resolve(true);
-                                });
+                            deferred.resolve(true);
                         }
                     });
             }, 1000);

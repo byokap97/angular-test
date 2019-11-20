@@ -26,6 +26,7 @@
                     'Authorization': 'none'        
                 }
             }).then(function(res){
+                UserService.setRequest(username, url);
                 return res.data;
             });
         
@@ -41,6 +42,7 @@
                     'Authorization': 'none'        
                 }
             }).then(function(res){
+                UserService.setRequest(username, url);
                 return res.data;
             });
             

@@ -16,12 +16,8 @@
         ctrl.nextShips;
         ctrl.$onInit = function (){
             ctrl.nextShips = ctrl.nextShipsAvailable
-            console.log(ctrl.nextShipsAvailable)
         }
 
-        ctrl.$onChanges = function (changesObj) {
-            console.log(changesObj)
-        }
         
         ctrl.fetchNextPage = function () {
             ctrl.onFetchNextPage();
