@@ -155,6 +155,12 @@ h6{
     font-family: jedi;
 }
 
+.alert{
+    margin-top: 20px;
+    font-family: jedi;
+    border-color: #FFEE58;
+    background-color: transparent;
+}
 .container {
     width: 100%; 
 }

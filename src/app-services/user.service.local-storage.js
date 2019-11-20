@@ -59,7 +59,7 @@
                             var request = filtered.length ? filtered[0] : null;
                             if (request) {
                                 for (var i = 0; i < user.requests.length; i++) {
-                                    if (user.requests[i].url === user.url) {
+                                    if (user.requests[i].url === request.url) {
                                         request.date = Date.now();
                                         user.requests[i] = request;
                                         break;
@@ -109,13 +109,16 @@
                 getRequests(username)
                     .then(function (requests) {
                         var requested = $filter('filter')(requests, { url: url });
+                        var response = { success: true }
                         if (requested.length) {
-                            var five_min = 5 * 60 * 1000;
-                            var timing = new Date() - new Date(requested[0].date) > five_min;
-                            deferred.resolve(timing);
-                        } else {
-                            deferred.resolve(true);
-                        }
+                            const date = new Date(requested[0].date);
+                            const diffTime = Math.abs(new Date() - date);
+                            var diffMins = Math.round(((diffTime % 86400000) % 3600000) / 60000);
+                            if(diffMins <= 5){
+                                var response = { success: false, message: 'the user has made the request less than 5 minutes ago' };
+                            } 
+                        } 
+                        deferred.resolve(response);
                     });
             }, 1000);
 

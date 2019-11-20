@@ -20,14 +20,14 @@
                 url = 'https://swapi.co/api/starships/'
             }
             var canRequest = await UserService.tryRequest(username, url);
-            if (!canRequest) return false;
+            if (!canRequest.success) return canRequest;
             return $http.get(url, {
                 headers: {
                     'Authorization': 'none'
                 }
             }).then(function (res) {
                 UserService.setRequest(username, url);
-                return res.data;
+                return { success: true, data: res.data }
             });
 
         }
@@ -36,14 +36,14 @@
             if (!id) return false;
             var url = `https://swapi.co/api/starships/${id}/`;
             var canRequest = await UserService.tryRequest(username, url);
-            if (!canRequest) return false;
+            if (!canRequest.success) return canRequest;
             return $http.get(url, {
                 headers: {
                     'Authorization': 'none'
                 }
             }).then(function (res) {
                 UserService.setRequest(username, url);
-                return res.data;
+                return { success: true, data: res.data }
             });
 
         }

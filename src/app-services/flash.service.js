@@ -43,11 +43,14 @@
         }
 
         function Error(message, keepAfterLocationChange) {
+            
             $rootScope.flash = {
                 message: message,
                 type: 'error',
                 keepAfterLocationChange: keepAfterLocationChange
             };
+
+            console.log('message', $rootScope.flash)
         }
     }
 
