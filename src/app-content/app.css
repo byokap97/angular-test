@@ -25,6 +25,12 @@ h1{
     color: #FFEE58;
 }
 
+h2{
+    font-family: jedi-outline;
+    font-size: 3em;
+    color: #FFEE58;
+} 
+
 h3{
     font-family: jedi-outline;
     font-size: 2em;
@@ -50,7 +56,17 @@ h3{
 .ships starship:nth-child(5n) {
     width: 50%;
 }
+starship {
+    margin-bottom: 10px;
+}
+starship:hover{
+    box-shadow: 0 0 11px #FFEE58; 
+    transform: scale(1.01);
+}
 
+.box-wars{
+    box-shadow: 0 0 11px #FFEE58; 
+}
 .panel {
     background: transparent;
 }
@@ -62,6 +78,7 @@ h3{
 }
 
 .ship .panel-img{
+    margin-top: 5px;
     max-height: 500px;
 }
 .ship .panel-img img {
@@ -103,6 +120,9 @@ h6{
     text-decoration: none;
     font-size: 12px;
     color: #FFEE58;
+    border-color: #FFEE58!important;
+    border-radius: 5px!important;
+    background-color: transparent!important;
 }
 
 .return-button:hover {
@@ -114,7 +134,6 @@ h6{
     width: calc(25% - 20px);
     position: relative;
     display: inline-block;
-    height: 200px;
     margin-right: 20px;
 }
 .related_info img{
@@ -126,6 +145,36 @@ h6{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#login-box {
+    padding: 0px 10px 10px 10px;
+}
+
+.form-wars label, span{
+    font-family: jedi;
+}
+
+.alert{
+    margin-top: 20px;
+    font-family: jedi;
+    border-color: #FFEE58;
+    background-color: transparent;
+}
+menu{
+    padding: 0px;
+    position: absolute;
+    width: 33%;
+}
+
+.nav-wars{
+    background-color: transparent;
+    border: 0px!important;
+    font-family: jedi;
+    
+}
+.nav-wars  li a{
+    color: #FFEE58!important;
 }
 
 .container {
@@ -143,10 +192,21 @@ h6{
     section{
         padding: 0px 20px 0 50px;
     }
+    
+}
+
+@media (max-width: 768px){
+    .ships starship:nth-child(5n) {
+        width: 100%;
+    }
+    menu{
+        width: 10%;
+    }
 }
 
 @media (min-width: 768px){
     section{
         padding: 0px 20px 0 30px;
     }
+    
 }

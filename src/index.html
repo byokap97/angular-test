@@ -2,12 +2,21 @@
 <html ng-app="app">
 <head>
     <meta charset="utf-8" />
-    <title>AngularJS User Registration and Login Example</title>
+    <title>Massimo Wars</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
     <link href="app-content/app.css" rel="stylesheet" />
 </head>
 <body>
+        
         <div class="container">
+            <header>
+                <menu ng-if="globals.currentUser"></menu> 
+                <div class="logo">
+                    <div class="title">massimo</div>
+                    <div class="subtitle">star wars visual guide</div>
+                    <div class="title">wars</div>
+                </div>
+            </header>
             <!-- As a link -->
             <div >
                 <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
@@ -35,6 +44,7 @@
     <script src="ships/ships.controller.js"></script>
     <script src="ships/starship-info/starship-info.controller.js"></script>
     <script src="ships/starships-list/starships-list.component.js"></script>
+    <script src="menu/menu.component.js"></script>
     <script src="ships/starships-list/starship/starship.component.js"></script>
 </body>
 </html>
